@@ -138,3 +138,17 @@ func TestExtractMultipleTags(t *testing.T) {
 	_, err = extract(&r)
 	require.Error(t, err)
 }
+
+func TestExtractAnonymousStruct(t *testing.T) {
+	s := &struct{ ID string }{ID: "60"}
+	r := reflect.ValueOf(s)
+	infos, err := extract(&r)
+	require.NoError(t, err)
+	require.NotNil(t, infos)
+	require.NotNil(t, infos.ID)
+	require.Equal(t, "__rainstorm_struct_983957a1", infos.Name)
+	require.Len(t, allByType(infos, "index"), 0)
+	require.Len(t, allByType(infos, "unique"), 0)
+	require.Len(t, allByType(infos, "id"), 1)
+
+}

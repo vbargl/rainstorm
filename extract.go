@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/AndersonBargas/rainstorm/v5/index"
+	"github.com/spaolacci/murmur3"
 	bolt "go.etcd.io/bbolt"
 )
 
@@ -18,6 +19,7 @@ const (
 	tagInline    = "inline"
 	tagIncrement = "increment"
 	indexPrefix  = "__rainstorm_index_"
+	structPrefix = "__rainstorm_struct_"
 )
 
 type fieldConfig struct {
@@ -62,7 +64,7 @@ func extract(s *reflect.Value, mi ...*structConfig) (*structConfig, error) {
 	}
 
 	if m.Name == "" {
-		m.Name = typ.Name()
+		m.Name = getName(typ)
 	}
 
 	numFields := s.NumField()
@@ -196,6 +198,17 @@ func extractSingleField(ref *reflect.Value, fieldName string) (*structConfig, er
 	}
 
 	return &cfg, nil
+}
+
+func getName(typ reflect.Type) string {
+	name := typ.Name()
+	if name != "" {
+		return name
+	}
+
+	hash := murmur3.New32()
+	hash.Write([]byte(typ.String()))
+	return structPrefix + fmt.Sprintf("%x", hash.Sum(nil))
 }
 
 func getIndex(bucket *bolt.Bucket, idxKind string, fieldName string) (index.Index, error) {

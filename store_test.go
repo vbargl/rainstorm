@@ -24,6 +24,9 @@ func TestInit(t *testing.T) {
 	err = db.Init(&u)
 	require.NoError(t, err)
 
+	err = db.Init(&struct{ ID string }{})
+	require.NoError(t, err)
+
 	err = db.One("Name", "John", &u)
 	require.Error(t, err)
 	require.Equal(t, ErrNotFound, err)
@@ -39,10 +42,6 @@ func TestInit(t *testing.T) {
 	err = db.Init(&ClassicNoTags{})
 	require.Error(t, err)
 	require.Equal(t, ErrNoID, err)
-
-	err = db.Init(&struct{ ID string }{})
-	require.Error(t, err)
-	require.Equal(t, ErrNoName, err)
 }
 
 func TestInitMetadata(t *testing.T) {
