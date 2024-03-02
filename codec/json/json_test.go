@@ -3,8 +3,8 @@ package json
 import (
 	"testing"
 
-	"github.com/AndersonBargas/rainstorm/v5/codec/internal"
 	"github.com/stretchr/testify/require"
+	"github.com/vbargl/rainstorm/v6/codec/internal"
 )
 
 func TestJSON(t *testing.T) {

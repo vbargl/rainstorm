@@ -5,10 +5,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/AndersonBargas/rainstorm/v5"
-	"github.com/AndersonBargas/rainstorm/v5/index"
-	"github.com/AndersonBargas/rainstorm/v5/q"
 	"github.com/stretchr/testify/require"
+	"github.com/vbargl/rainstorm/v6"
+	"github.com/vbargl/rainstorm/v6/index"
+	"github.com/vbargl/rainstorm/v6/q"
 	bolt "go.etcd.io/bbolt"
 )
 

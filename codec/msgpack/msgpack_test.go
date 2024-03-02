@@ -3,8 +3,8 @@ package msgpack
 import (
 	"testing"
 
-	"github.com/AndersonBargas/rainstorm/v5/codec/internal"
 	"github.com/stretchr/testify/require"
+	"github.com/vbargl/rainstorm/v6/codec/internal"
 )
 
 func TestMsgpack(t *testing.T) {

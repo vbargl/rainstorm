@@ -1,8 +1,8 @@
 package rainstorm
 
 import (
-	"github.com/AndersonBargas/rainstorm/v5/internal"
-	"github.com/AndersonBargas/rainstorm/v5/q"
+	"github.com/vbargl/rainstorm/v6/internal"
+	"github.com/vbargl/rainstorm/v6/q"
 	bolt "go.etcd.io/bbolt"
 )
 

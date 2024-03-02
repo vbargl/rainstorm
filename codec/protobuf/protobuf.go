@@ -4,8 +4,8 @@ package protobuf
 import (
 	"errors"
 
-	"github.com/AndersonBargas/rainstorm/v5/codec/json"
 	"github.com/golang/protobuf/proto"
+	"github.com/vbargl/rainstorm/v6/codec/json"
 )
 
 const name = "protobuf"

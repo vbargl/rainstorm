@@ -3,8 +3,8 @@ package rainstorm
 import (
 	"os"
 
-	"github.com/AndersonBargas/rainstorm/v5/codec"
-	"github.com/AndersonBargas/rainstorm/v5/index"
+	"github.com/vbargl/rainstorm/v6/codec"
+	"github.com/vbargl/rainstorm/v6/index"
 	bolt "go.etcd.io/bbolt"
 )
 

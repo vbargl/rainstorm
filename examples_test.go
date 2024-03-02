@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/AndersonBargas/rainstorm/v5"
-	"github.com/AndersonBargas/rainstorm/v5/codec/gob"
+	"github.com/vbargl/rainstorm/v6"
+	"github.com/vbargl/rainstorm/v6/codec/gob"
 	bolt "go.etcd.io/bbolt"
 )
 

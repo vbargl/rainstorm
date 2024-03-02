@@ -1,6 +1,6 @@
 # Rainstorm
 
-[![GoDoc](https://godoc.org/github.com/AndersonBargas/rainstorm?status.svg)](https://pkg.go.dev/github.com/AndersonBargas/rainstorm/v5?tab=doc) [![Go Report Card](https://goreportcard.com/badge/github.com/AndersonBargas/rainstorm)](https://goreportcard.com/report/github.com/AndersonBargas/rainstorm) ![GoLang](https://github.com/AndersonBargas/rainstorm/workflows/GoLang/badge.svg)
+[![GoDoc](https://godoc.org/github.com/AndersonBargas/rainstorm?status.svg)](https://pkg.go.dev/github.com/vbargl/rainstorm/v6?tab=doc) [![Go Report Card](https://goreportcard.com/badge/github.com/AndersonBargas/rainstorm)](https://goreportcard.com/report/github.com/AndersonBargas/rainstorm) ![GoLang](https://github.com/AndersonBargas/rainstorm/workflows/GoLang/badge.svg)
 
 Rainstorm is a simple and powerful toolkit for [BoltDB](https://github.com/coreos/bbolt), forked from the great [Storm](https://github.com/asdine/storm).
 Basically, Rainstorm provides indexes, a wide range of methods to store and fetch data, an advanced query system, and much more.
@@ -49,7 +49,7 @@ In addition to the examples below, see also the [examples in the GoDoc](https://
 ## Getting Started
 
 ```bash
-GO111MODULE=on go get -u github.com/AndersonBargas/rainstorm/v5
+GO111MODULE=on go get -u github.com/vbargl/rainstorm/v6
 ```
 
 ## Main differences from "storm"
@@ -65,7 +65,7 @@ To take advantage of the performance changes made after the fork, just use versi
 ## Import Rainstorm
 
 ```go
-import "github.com/AndersonBargas/rainstorm/v5"
+import "github.com/vbargl/rainstorm/v6"
 ```
 
 ## Open a database
@@ -269,6 +269,7 @@ err := db.UpdateField(&User{ID: 10}, "Age", 0)
 ```
 
 #### Count the objects
+
 ```go
 number, err := db.Count(&User{})
 ```
@@ -481,18 +482,18 @@ db := rainstorm.Open("my.db", rainstorm.Codec(myCodec))
 
 ##### Provided Codecs
 
-You can easily implement your own `MarshalUnmarshaler`, but Rainstorm comes with built-in support for [JSON](https://godoc.org/github.com/AndersonBargas/rainstorm/codec/json) (default), [GOB](https://godoc.org/github.com/AndersonBargas/rainstorm/codec/gob),  [Sereal](https://godoc.org/github.com/AndersonBargas/rainstorm/codec/sereal), [Protocol Buffers](https://godoc.org/github.com/AndersonBargas/rainstorm/codec/protobuf) and [MessagePack](https://godoc.org/github.com/AndersonBargas/rainstorm/codec/msgpack).
+You can easily implement your own `MarshalUnmarshaler`, but Rainstorm comes with built-in support for [JSON](https://godoc.org/github.com/AndersonBargas/rainstorm/codec/json) (default), [GOB](https://godoc.org/github.com/AndersonBargas/rainstorm/codec/gob), [Sereal](https://godoc.org/github.com/AndersonBargas/rainstorm/codec/sereal), [Protocol Buffers](https://godoc.org/github.com/AndersonBargas/rainstorm/codec/protobuf) and [MessagePack](https://godoc.org/github.com/AndersonBargas/rainstorm/codec/msgpack).
 
 These can be used by importing the relevant package and use that codec to configure Rainstorm. The example below shows all variants (without proper error handling):
 
 ```go
 import (
-  "github.com/AndersonBargas/rainstorm/v5"
-  "github.com/AndersonBargas/rainstorm/v5/codec/gob"
-  "github.com/AndersonBargas/rainstorm/v5/codec/json"
-  "github.com/AndersonBargas/rainstorm/v5/codec/sereal"
-  "github.com/AndersonBargas/rainstorm/v5/codec/protobuf"
-  "github.com/AndersonBargas/rainstorm/v5/codec/msgpack"
+  "github.com/vbargl/rainstorm/v6"
+  "github.com/vbargl/rainstorm/v6/codec/gob"
+  "github.com/vbargl/rainstorm/v6/codec/json"
+  "github.com/vbargl/rainstorm/v6/codec/sereal"
+  "github.com/vbargl/rainstorm/v6/codec/protobuf"
+  "github.com/vbargl/rainstorm/v6/codec/msgpack"
 )
 
 var gobDb, _ = rainstorm.Open("gob.db", rainstorm.Codec(gob.Codec))

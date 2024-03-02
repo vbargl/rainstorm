@@ -5,9 +5,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/AndersonBargas/rainstorm/v5"
-	"github.com/AndersonBargas/rainstorm/v5/codec/internal"
 	"github.com/stretchr/testify/require"
+	"github.com/vbargl/rainstorm/v6"
+	"github.com/vbargl/rainstorm/v6/codec/internal"
 )
 
 func TestProtobuf(t *testing.T) {
